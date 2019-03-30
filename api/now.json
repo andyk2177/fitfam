@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "name": "fitfam-api",
+  "builds": [{ "src": "**/*.js", "use": "@now/node" }],
+  "routes": [
+    { "src": "/login", "dest": "/login/index.js" },
+    { "src": "/(.*)", "dest": "/index.js" }
+  ]
+}
