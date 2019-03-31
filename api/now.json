@@ -1,6 +1,10 @@
 {
   "version": 2,
   "name": "fitfam-api",
+  "env": {
+    "INSTAGRAM_CLIENT_KEY": "567e9dfbd8bd4f619be8f5665d0eef29",
+    "INSTAGRAM_CLIENT_SECRET": "@instagram-client-secret"
+  },
   "builds": [{ "src": "**/*.js", "use": "@now/node" }],
   "routes": [
     { "src": "/login", "dest": "/login/index.js" },

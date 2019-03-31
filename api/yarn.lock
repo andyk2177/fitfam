@@ -665,6 +665,11 @@ node-instagram@^4.3.0:
     node-fetch "^2.3.0"
     query-string "^6.2.0"
 
+now-env@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/now-env/-/now-env-3.1.0.tgz#e0198b67279d387229cfd4b25de4c2fc7156943f"
+  integrity sha512-f+jXC+UkoxD/g9Nlig99Bxswoh7UUuQxw0EsPfuueHnVpVE0LfgQ4el5dxY4TSXwrL9mEF9GGm0gb7r3K8r/ug==
+
 now-lambda-runner@^3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/now-lambda-runner/-/now-lambda-runner-3.3.0.tgz#a1e56e21a42a34790e8ef2b0154781fb39079c9f"

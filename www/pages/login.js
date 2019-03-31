@@ -7,27 +7,26 @@ export default class Login extends React.Component {
     if (isServer && query.code) {
       const code = query.code;
 
-      const response = await fetch(`${process.env.API_URL}/login`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json; charset=utf-8"
-        },
-        body: JSON.stringify({ code })
-      });
-
-      const result = await response.json();
-      const expDate = addDays(new Date(), 30).toUTCString();
-
-      res.setHeader(
-        "Set-Cookie",
-        `session=${result.jwt}; Path=/; Expires=${expDate};`
+      const response = await fetch(
+        `${process.env.API_URL}/login?code=${code}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json; charset=utf-8"
+          }
+        }
       );
 
-      doRedirect(res, redirectUrl);
+      const result = await response.json();
+
+      console.log(result);
+
+      return result;
     }
   }
 
   render() {
+    console.log(this.props);
     return <div>Login</div>;
   }
 }
