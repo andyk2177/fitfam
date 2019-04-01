@@ -4,6 +4,7 @@ const helmet = require("helmet");
 const app = express();
 const Instagram = require("node-instagram").default;
 const json = require("body-parser").json;
+const User = require("../../models/User");
 
 // add some security-related headers to the response
 app.use(helmet());
@@ -18,12 +19,28 @@ app.get("*", async (req, res) => {
       clientSecret: process.env.INSTAGRAM_CLIENT_SECRET
     });
 
-    const data = await instagram.authorizeUser(
+    const ig_auth = await instagram.authorizeUser(
       code,
-      "http://localhost:3000/login"
+      process.env.NODE_ENV === "production"
+        ? process.env.INSTAGRAM_REDIRECT_URL
+        : "http://localhost:3000/login"
     );
 
-    res.send(data);
+    instagram.config.accessToken = ig_auth.access_token;
+
+    const ig_user_res = await instagram.get("users/self");
+    const ig_user = ig_user_res.data;
+    console.log(ig_user);
+
+    const user = await User.query().insert({
+      name: ig_user.full_name,
+      username: ig_user.username,
+      photo: ig_user.profile_picture,
+      bio: ig_user.bio,
+      createdAt: new Date()
+    });
+
+    res.send(user);
   } catch (err) {
     console.log(err);
     res.json(err);

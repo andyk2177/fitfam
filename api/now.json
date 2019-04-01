@@ -3,11 +3,15 @@
   "name": "fitfam-api",
   "env": {
     "INSTAGRAM_CLIENT_KEY": "567e9dfbd8bd4f619be8f5665d0eef29",
-    "INSTAGRAM_CLIENT_SECRET": "@instagram-client-secret"
+    "INSTAGRAM_CLIENT_SECRET": "@instagram-client-secret",
+    "INSTAGRAM_REDIRECT_URL": "https://fitfam.me/login",
+    "DB_HOST": "@db-host-fitfam",
+    "DB_USER": "@db-user-fitfam",
+    "DB_PASS": "@db-pass-fitfam"
   },
-  "builds": [{ "src": "**/*.js", "use": "@now/node" }],
+  "builds": [{ "src": "routes/**/*.js", "use": "@now/node" }],
   "routes": [
-    { "src": "/login", "dest": "/login/index.js" },
-    { "src": "/(.*)", "dest": "/index.js" }
+    { "src": "/login", "dest": "/routes/login/index.js" },
+    { "src": "/(.*)", "dest": "/routes/index.js" }
   ]
 }

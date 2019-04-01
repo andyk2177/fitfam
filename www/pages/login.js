@@ -17,16 +17,13 @@ export default class Login extends React.Component {
         }
       );
 
-      const result = await response.json();
+      const user = await response.json();
 
-      console.log(result);
-
-      return result;
+      return user;
     }
   }
 
   render() {
-    console.log(this.props);
-    return <div>Login</div>;
+    return <div>Login {this.props.username}</div>;
   }
 }
