@@ -30,7 +30,6 @@ app.get("*", async (req, res) => {
 
     const ig_user_res = await instagram.get("users/self");
     const ig_user = ig_user_res.data;
-    console.log(ig_user);
 
     const user = await User.query().insert({
       name: ig_user.full_name,
@@ -42,7 +41,6 @@ app.get("*", async (req, res) => {
 
     res.send(user);
   } catch (err) {
-    console.log(err);
     res.json(err);
   }
 });

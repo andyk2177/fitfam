@@ -12,6 +12,7 @@
   "builds": [{ "src": "routes/**/*.js", "use": "@now/node" }],
   "routes": [
     { "src": "/login", "dest": "/routes/login/index.js" },
+    { "src": "/users", "dest": "/routes/users/index.js" },
     { "src": "/(.*)", "dest": "/routes/index.js" }
   ]
 }
