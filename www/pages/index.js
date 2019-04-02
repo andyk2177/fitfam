@@ -22,7 +22,7 @@ const index = ({ users }) => (
 );
 
 index.getInitialProps = async () => {
-  const res = await fetch("http://localhost:4000/users");
+  const res = await fetch(`${process.env.API_URL}/users`);
   const json = await res.json();
 
   return { users: json };
