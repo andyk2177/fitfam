@@ -1,6 +1,7 @@
 {
   "version": 2,
   "name": "fitfam-api",
+  "alias": "api.fitfam.me",
   "env": {
     "INSTAGRAM_CLIENT_KEY": "567e9dfbd8bd4f619be8f5665d0eef29",
     "INSTAGRAM_CLIENT_SECRET": "@instagram-client-secret",
@@ -13,6 +14,10 @@
   "routes": [
     { "src": "/login", "dest": "/routes/login/index.js" },
     { "src": "/users", "dest": "/routes/users/index.js" },
+    {
+      "src": "/user_profile/(?<username>[^/]+)$",
+      "dest": "/routes/user_profile/index.js?username=$username"
+    },
     { "src": "/(.*)", "dest": "/routes/index.js" }
   ]
 }

@@ -1,5 +1,11 @@
 {
   "version": 2,
   "name": "fitfam",
-  "builds": [{ "src": "next.config.js", "use": "@now/next" }]
+  "alias": "fitfam.me",
+  "builds": [{ "src": "next.config.js", "use": "@now/next" }],
+  "routes": [
+    { "src": "/about" },
+    { "src": "/login" },
+    { "src": "/(?<username>[^/]+)$", "dest": "/index?username=$username" }
+  ]
 }
