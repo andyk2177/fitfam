@@ -29,6 +29,21 @@ const index = ({ users, user }) => {
               allow="encrypted-media"
             />
           </div>
+
+          <div className="UserWorkouts">
+            {user.workouts.map(workout => (
+              <div>
+                <div key={workout.id}>{workout.name}</div>
+                <ul>
+                  {workout.exercises.map(exercise => (
+                    <li key={exercise.id}>
+                      {exercise.name} {exercise.weight} x {exercise.reps}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
 
         <style jsx>{`

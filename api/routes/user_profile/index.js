@@ -12,6 +12,7 @@ app.use(json());
 app.get("*", async (req, res) => {
   try {
     const user = await User.query()
+      .eager("workouts.exercises")
       .where("username", req.query.username)
       .first();
     res.send(user);

@@ -1,20 +1,20 @@
 const knex = require("../db");
 const Model = require("objection").Model;
-const Workout = require("../models/Workout");
+const Exercise = require("../models/Exercise");
 
-module.exports = class User extends Model {
+module.exports = class Workout extends Model {
   static get tableName() {
-    return "users";
+    return "workouts";
   }
 
   static get relationMappings() {
     return {
-      workouts: {
+      exercises: {
         relation: Model.HasManyRelation,
-        modelClass: Workout,
+        modelClass: Exercise,
         join: {
-          from: "users.id",
-          to: "workouts.user_id"
+          from: "workouts.id",
+          to: "exercises.workout_id"
         }
       }
     };
