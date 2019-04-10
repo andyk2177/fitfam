@@ -11,7 +11,7 @@ app.use(json());
 
 app.get("*", async (req, res) => {
   try {
-    const users = await User.query().eager("[workouts.[exercies]]");
+    const users = await User.query();
     res.send(users);
   } catch (err) {
     res.json(err);

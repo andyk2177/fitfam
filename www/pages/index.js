@@ -32,12 +32,15 @@ const index = ({ users, user }) => {
 
           <div className="UserWorkouts">
             {user.workouts.map(workout => (
-              <div>
-                <div key={workout.id}>{workout.name}</div>
+              <div key={workout.id}>
+                <div>{workout.name}</div>
+                <div>{workout.created_at}</div>
+
                 <ul>
                   {workout.exercises.map(exercise => (
                     <li key={exercise.id}>
-                      {exercise.name} {exercise.weight} x {exercise.reps}
+                      {exercise.name} {exercise.weight} x {exercise.reps}{" "}
+                      {workout.created_at}
                     </li>
                   ))}
                 </ul>
