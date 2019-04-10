@@ -1,11 +1,13 @@
 import InstagramLogin from "react-instagram-login";
 import fetch from "isomorphic-unfetch";
 import UserList from "../components/UserList";
+import Link from "next/link";
+import Layout from "../components/Layout";
 
 const index = ({ users, user }) => {
   if (user) {
     return (
-      <div>
+      <Layout>
         <h2>{user.username}</h2>
         <a href="#">
           <img src={user.photo} alt={user.username} className="ProfilePic" />
@@ -15,13 +17,14 @@ const index = ({ users, user }) => {
             }
           `}</style>
         </a>
-      </div>
+      </Layout>
     );
   }
 
   return (
-    <div>
+    <Layout>
       <div>💪</div>
+      <Link href="/about">about</Link>
       <InstagramLogin
         clientId="567e9dfbd8bd4f619be8f5665d0eef29"
         redirectUri={process.env.LOGIN_URL}
@@ -29,7 +32,7 @@ const index = ({ users, user }) => {
       />
 
       <UserList users={users} />
-    </div>
+    </Layout>
   );
 };
 
