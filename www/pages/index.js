@@ -8,22 +8,47 @@ const index = ({ users, user }) => {
   if (user) {
     return (
       <Layout>
-        <h2>{user.username}</h2>
-        <a href="#">
-          <img src={user.photo} alt={user.username} className="ProfilePic" />
-          <style jsx>{`
-            .ProfilePic {
-              border-radius: 50%;
-            }
-          `}</style>
-        </a>
+        <div className="UserProfile">
+          <div className="center">
+            <a href="#">
+              <img
+                src={user.photo}
+                alt={user.username}
+                className="ProfilePic"
+              />
+            </a>
+
+            <h2>{user.username}</h2>
+
+            <iframe
+              src={user.profile_song}
+              width="300"
+              height="80"
+              frameborder="0"
+              allowtransparency="true"
+              allow="encrypted-media"
+            />
+          </div>
+        </div>
+
+        <style jsx>{`
+          .UserProfile {
+            max-width: 800px;
+            margin: 0 auto;
+          }
+          .center {
+            text-align: center;
+          }
+          .ProfilePic {
+            border-radius: 50%;
+          }
+        `}</style>
       </Layout>
     );
   }
 
   return (
     <Layout>
-      <div>💪</div>
       <Link href="/about">about</Link>
       <InstagramLogin
         clientId="567e9dfbd8bd4f619be8f5665d0eef29"
