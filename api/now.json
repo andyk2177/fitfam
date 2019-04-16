@@ -8,7 +8,8 @@
     "INSTAGRAM_REDIRECT_URL": "https://fitfam.me/login",
     "DB_HOST": "@db-host-fitfam",
     "DB_USER": "@db-user-fitfam",
-    "DB_PASS": "@db-pass-fitfam"
+    "DB_PASS": "@db-pass-fitfam",
+    "MONGODB_URI": "@mongodb-uri"
   },
   "builds": [{ "src": "routes/**/*.js", "use": "@now/node" }],
   "routes": [
