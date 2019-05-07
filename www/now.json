@@ -6,6 +6,7 @@
   "routes": [
     { "src": "/about" },
     { "src": "/login" },
+    { "src": "/supplements" },
     { "src": "/(?<username>[^/]+)$", "dest": "/index?username=$username" }
   ]
 }

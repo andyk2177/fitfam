@@ -15,6 +15,7 @@
   "routes": [
     { "src": "/login", "dest": "/routes/login/index.js" },
     { "src": "/users", "dest": "/routes/users/index.js" },
+    { "src": "/supplements", "dest": "/routes/supplements/index.js" },
     {
       "src": "/user_profile/(?<username>[^/]+)$",
       "dest": "/routes/user_profile/index.js?username=$username"
